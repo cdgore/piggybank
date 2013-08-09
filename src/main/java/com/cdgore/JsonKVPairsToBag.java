@@ -52,6 +52,8 @@ public class JsonKVPairsToBag extends EvalFunc<DataBag> {
     final String iString = (String) inputString;
     
     try {
+      // trims null characters generated from JSONs in UTF-16.  This is necessary for
+      // JSON objects outputted from Spark as of 0.7.0
       final JsonParser jP = JSON_FACTORY.createJsonParser(iString.replaceAll("\\s","").replaceAll("\\\0","").trim());  
     
       jP.nextToken();
