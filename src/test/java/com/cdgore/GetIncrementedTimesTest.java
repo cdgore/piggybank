@@ -1,4 +1,4 @@
-package com.cdgore;
+package com.cdgore.piggybank;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ public class GetIncrementedTimesTest {
       "times = LOAD 'input' USING PigStorage() AS (time: chararray);",
       "times_group = GROUP times ALL;",
       "times_bounds = FOREACH times_group GENERATE MIN(times.time) AS min_time, MAX(times.time) AS max_time;",
-      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(rsciudfs.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorLeft')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
+      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(com.cdgore.piggybank.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorLeft')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
       "STORE time_series_bounds INTO 'output';"
     };
     
@@ -48,7 +48,7 @@ public class GetIncrementedTimesTest {
       "times = LOAD 'input' USING PigStorage() AS (time: chararray);",
       "times_group = GROUP times ALL;",
       "times_bounds = FOREACH times_group GENERATE MIN(times.time) AS min_time, MAX(times.time) AS max_time;",
-      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(rsciudfs.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorLeft', '-includeTarget')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
+      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(com.cdgore.piggybank.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorLeft', '-includeTarget')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
       "STORE time_series_bounds INTO 'output';"
     };
     
@@ -81,7 +81,7 @@ public class GetIncrementedTimesTest {
       "times = LOAD 'input' USING PigStorage() AS (time: chararray);",
       "times_group = GROUP times ALL;",
       "times_bounds = FOREACH times_group GENERATE MIN(times.time) AS min_time, MAX(times.time) AS max_time;",
-      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(rsciudfs.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorRight')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
+      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(com.cdgore.piggybank.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorRight')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
       "STORE time_series_bounds INTO 'output';"
     };
     
@@ -113,7 +113,7 @@ public class GetIncrementedTimesTest {
       "times = LOAD 'input' USING PigStorage() AS (time: chararray);",
       "times_group = GROUP times ALL;",
       "times_bounds = FOREACH times_group GENERATE MIN(times.time) AS min_time, MAX(times.time) AS max_time;",
-      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(rsciudfs.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorRight', '-includeTarget')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
+      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(com.cdgore.piggybank.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600, '-anchorRight', '-includeTarget')) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
       "STORE time_series_bounds INTO 'output';"
     };
     
@@ -145,7 +145,7 @@ public class GetIncrementedTimesTest {
       "times = LOAD 'input' USING PigStorage() AS (time: chararray);",
       "times_group = GROUP times ALL;",
       "times_bounds = FOREACH times_group GENERATE MIN(times.time) AS min_time, MAX(times.time) AS max_time;",
-      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(rsciudfs.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600)) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
+      "time_series_bounds = FOREACH times_bounds GENERATE FLATTEN(com.cdgore.piggybank.GetIncrementedTimes(min_time, max_time, 'yyyy-MM-dd HH:mm:ss', 1209600)) AS (time_step_lower_bound: chararray, time_step_upper_bound: chararray);",
       "STORE time_series_bounds INTO 'output';"
     };
     

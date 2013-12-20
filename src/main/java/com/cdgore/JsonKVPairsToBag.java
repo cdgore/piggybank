@@ -1,4 +1,4 @@
-package com.cdgore;
+package com.cdgore.piggybank;
 
 import java.io.IOException;
 
